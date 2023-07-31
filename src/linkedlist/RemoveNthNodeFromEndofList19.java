@@ -1,7 +1,6 @@
 package linkedlist;
 
-import Utils.ListNode;
-import java.util.List;
+import utils.ListNode;
 
 /**
  * @FileName: RemoveNthNodeFromEndofList19

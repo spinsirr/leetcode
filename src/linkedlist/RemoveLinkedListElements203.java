@@ -1,6 +1,6 @@
 package linkedlist;
 
-import Utils.ListNode;
+import utils.ListNode;
 
 /**
  * @FileName: RemoveLinkedListElements203
