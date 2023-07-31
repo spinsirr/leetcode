@@ -17,14 +17,20 @@ public class ValidAnagram242 {
         if (s == null || t == null || s.length() != t.length()) {
             return false;
         }
-        int[] table1 = new int[70];
-        int[] table2 = new int[70];
+        int[] table = new int[26];
         char[] sArray = s.toCharArray();
         char[] tArray = t.toCharArray();
-        for (int i = 0; i < sArray.length; i++) {
-            table1[sArray[i]-65]++;
-            table2[tArray[i]-65]++;
+        for (char value1 : sArray) {
+            table[value1 - 'a']++;
         }
-        return Arrays.equals(table1, table2);
+        for (char value2 : tArray) {
+            table[value2 - 'a']--;
+        }
+        for (int i = 0; i < 26; i++) {
+            if (table[i] != 0){
+                return false;
+            }
+        }
+        return true;
     }
 }
