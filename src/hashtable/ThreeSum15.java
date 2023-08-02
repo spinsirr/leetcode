@@ -17,9 +17,9 @@ public class ThreeSum15 {
         Arrays.sort(nums);
         int left;
         int right;
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length - 2; i++) {
             if (nums[i] > 0) {
-                return new ArrayList<>();
+                return res;
             }
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
@@ -27,9 +27,10 @@ public class ThreeSum15 {
             left = i + 1;
             right = nums.length - 1;
             while (left < right) {
-                if (nums[i] + nums[left] + nums[right] > 0) {
+                int sum = nums[i] + nums[left] + nums[right];
+                if (sum > 0) {
                     right--;
-                } else if (nums[i] + nums[left] + nums[right] < 0) {
+                } else if (sum < 0) {
                     left++;
                 } else {
                     res.add(Arrays.asList(nums[i], nums[left], nums[right]));
