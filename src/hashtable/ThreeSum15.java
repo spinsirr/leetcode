@@ -6,7 +6,8 @@ import java.util.List;
 
 /**
  * @FileName: ThreeSum15
- * @Description: TODO
+ * @Description: Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]]
+ * such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
  * @Author: Spencer ZHAO
  * @Date: 8/2/2023
  */
@@ -34,14 +35,14 @@ public class ThreeSum15 {
                     left++;
                 } else {
                     res.add(Arrays.asList(nums[i], nums[left], nums[right]));
-                    while (left < right && nums[right] == nums[right - 1]) {
-                        right--;
-                    }
-                    while (left < right && nums[left] == nums[left + 1]) {
-                        left++;
-                    }
                     left++;
                     right--;
+                    while (left < right && nums[right] == nums[right + 1]) {
+                        right--;
+                    }
+                    while (left < right && nums[left] == nums[left - 1]) {
+                        left++;
+                    }
                 }
             }
         }
