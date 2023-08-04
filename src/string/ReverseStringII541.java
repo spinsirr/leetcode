@@ -18,15 +18,16 @@ public class ReverseStringII541 {
         int size = s.length();
         for (int i = 0; i < size; i += 2 * k) {
             if (i + k - 1 > size - 1) {
-                reverse(i, size - 1, array);
+                reverse(i, size, array);
             } else {
-                reverse(i, i + k - 1, array);
+                reverse(i, i + k, array);
             }
         }
-        return String.valueOf(array);
+        return new String(array);
     }
     
     public void reverse(int i, int j, char[] s) {
+        j--;
         while (i < j) {
             char temp = s[i];
             s[i] = s[j];
