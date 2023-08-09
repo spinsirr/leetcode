@@ -14,26 +14,25 @@ import java.util.Arrays;
 public class ReverseStringII541 {
     
     public String reverseStr(String s, int k) {
-        char[] array = s.toCharArray();
-        int size = s.length();
+        char[] charArray = s.toCharArray();
+        int size = charArray.length;
         for (int i = 0; i < size; i += 2 * k) {
-            if (i + k - 1 > size - 1) {
-                reverse(i, size, array);
+            if (i + k - 1 >= size) {
+                reverse(charArray, i, size - 1);
             } else {
-                reverse(i, i + k, array);
+                reverse(charArray, i, i + k - 1);
             }
         }
-        return new String(array);
+        return new String(charArray);
     }
     
-    public void reverse(int i, int j, char[] s) {
-        j--;
-        while (i < j) {
-            char temp = s[i];
-            s[i] = s[j];
-            s[j] = temp;
-            i++;
-            j--;
+    public void reverse(char[] charArray, int start, int end) {
+        while (start < end) {
+            char temp = charArray[start];
+            charArray[start] = charArray[end];
+            charArray[end] = temp;
+            start++;
+            end--;
         }
     }
 }
