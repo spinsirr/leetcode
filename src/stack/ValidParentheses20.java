@@ -16,16 +16,17 @@ public class ValidParentheses20 {
             return false;
         }
         for (char e : s.toCharArray()) {
-            if (e == '(') {
-                chars.push(')');
-            } else if (e == '[') {
-                chars.push(']');
-            } else if (e == '{') {
-                chars.push('}');
-            } else if (chars.isEmpty() || chars.peek() != e) {
-                return false;
-            } else {
-                chars.pop();
+            switch (e) {
+                case '(' -> chars.push(')');
+                case '[' -> chars.push(']');
+                case '{' -> chars.push('}');
+                default -> {
+                    if (chars.isEmpty() || chars.peek() != e) {
+                        return false;
+                    } else {
+                        chars.pop();
+                    }
+                }
             }
         }
         return chars.isEmpty();
