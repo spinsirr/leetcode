@@ -20,7 +20,7 @@ public class SlidingWindowMaximum239 {
         
         void pop(int val) {
             if (!queue.isEmpty() && val == queue.getFirst()) {
-                queue.removeFirst();
+                queue.poll();
             }
         }
         
@@ -28,11 +28,11 @@ public class SlidingWindowMaximum239 {
             while (!queue.isEmpty() && queue.getLast() < val) {
                 queue.removeLast();
             }
-            queue.push(val);
+            queue.add(val);
         }
         
         int getMaxValue() {
-            return queue.getFirst();
+            return queue.peek();
         }
     }
     
@@ -47,8 +47,8 @@ public class SlidingWindowMaximum239 {
             int[] res = new int[len];
             int num = 0;
             MyQueue myQueue = new MyQueue();
-            for (int number : nums) {
-                myQueue.push(number);
+            for (int i = 0; i < k; i++) {
+                myQueue.push(nums[i]);
             }
             res[num++] = myQueue.getMaxValue();
             for (int i = k; i < nums.length; i++) {
