@@ -1,14 +1,16 @@
 package stack;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.PriorityQueue;
+import org.jetbrains.annotations.NotNull;
 
 public class TopKFrequentElements347 {
     
-    public int[] topKFrequent(int[] nums, int k) {
+    public int[] topKFrequent(int @NotNull [] nums, int k) {
         if (k == nums.length) {
             return nums;
         }
