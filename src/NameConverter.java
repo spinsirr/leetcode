@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class NameConverter {
     
     public static void main(String[] args) {
-        String s = "654. Maximum Binary Tree\n";
+        String s = "98. Validate Binary Search Tree\n";
         char[] sArray = s.toCharArray();
         int fast = 0, slow = 0;
         while (fast < sArray.length && slow < sArray.length) {
