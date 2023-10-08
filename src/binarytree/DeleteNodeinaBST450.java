@@ -15,12 +15,10 @@ public class DeleteNodeinaBST450 {
             return null;
         }
         if (root.val == key) {
-            if (root.left == null && root.right == null) {
-                return null;
-            } else if (root.left != null && root.right == null) {
-                return root.left;
-            } else if (root.left == null && root.right != null) {
+            if (root.left == null) {
                 return root.right;
+            } else if (root.right == null) {
+                return root.left;
             } else {
                 TreeNode cur = root.right;
                 while (cur.left != null) {
