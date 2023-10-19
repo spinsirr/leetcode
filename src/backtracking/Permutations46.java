@@ -1,38 +1,37 @@
 package backtracking;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 
 /**
  * @Author: Spencer Zhao
  * @Email: yunpenz3@uci.edu
- * @Date: 10/17/2023-12:05 AM
+ * @Date: 10/18/2023-12:44 PM
  */
-public class SubsetsII90 {
+public class Permutations46 {
     
     ArrayList<List<Integer>> result = new ArrayList<>();
-    LinkedList<Integer> temp = new LinkedList<>();
+    LinkedList<Integer> path = new LinkedList<>();
     
-    public List<List<Integer>> subsetsWithDup(int[] nums) {
-        Arrays.sort(nums);
+    public List<List<Integer>> permute(int[] nums) {
         backtracking(nums, 0);
         return result;
     }
     
     private void backtracking(int[] nums, int startIndex) {
-        result.add(new ArrayList<>(temp));
-        if (startIndex > nums.length) {
+        if (path.size() == nums.length) {
+            result.add(new ArrayList<>(path));
             return;
         }
-        for (int i = startIndex; i < nums.length; i++) {
-            if (i > startIndex && nums[i - 1] == nums[i]) {
+        for (int i = 0; i < nums.length; i++) {
+            if (path.contains(nums[i])) {
                 continue;
             }
-            temp.add(nums[i]);
+            path.add(nums[i]);
             backtracking(nums, i + 1);
-            temp.removeLast();
+            path.removeLast();
         }
     }
 }
