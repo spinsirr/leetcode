@@ -8,20 +8,17 @@ package greedy;
 public class JumpGameII45 {
     
     public int jump(int[] nums) {
-        if (nums.length <= 1) {
+        if (nums.length == 1) {
             return 0;
         }
         int currJump = 0;
         int nextJump = 0;
         int step = 0;
-        for (int i = 0; i <= currJump; i++) {
+        for (int i = 0; i < nums.length - 1; i++) {
             nextJump = Math.max(nums[i] + i, nextJump);
-            if (i == currJump){
-                step++;
+            if (i == currJump) {
                 currJump = nextJump;
-                if (nextJump >= nums.length - 1){
-                    break;
-                }
+                step++;
             }
         }
         return step;
